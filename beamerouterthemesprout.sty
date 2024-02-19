@@ -1,0 +1,54 @@
+\setbeamertemplate{navigation symbols}{}
+
+\RequirePackage{tikz}
+
+\defbeamertemplate*{frametitle}{sprout}[1][]{
+    \vskip0.5cm%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm]{frametitle} 
+        \begin{tikzpicture}
+            \useasboundingbox(0,0) rectangle(\the\paperwidth,1.2);
+            \draw[fill=SproutLightGray,opacity=0.4,draw=none] (2.25, 0.1) rectangle ++(8, 1.05);
+            \node[] at (6.25,0.625){\usebeamerfont{frametitle}\insertframetitle};
+        \end{tikzpicture}
+    \end{beamercolorbox}
+}
+
+\AtBeginSection[]{
+    \begin{frame}
+        \vfill
+        \centering
+        \begin{beamercolorbox}[center]{title}
+            \hypersetup{hidelinks}
+            \usebeamerfont{title}\insertsectionhead\par%
+        \end{beamercolorbox}
+        \vfill
+    \end{frame}
+}
+
+\makeatletter
+\setbeamertemplate{theorem begin}{%
+  \setbeamercolor{block title}{bg=SproutTheoremTitleBg}% theorem/lemma color
+  \begin{\inserttheoremblockenv}
+    {%
+      \inserttheoremname
+      \ifx\inserttheoremaddition\@empty\else\ \inserttheoremaddition\fi%
+    }%
+    \normalfont%
+}
+\setbeamertemplate{theorem end}{%
+    \end{\inserttheoremblockenv}%
+}
+\makeatother
+
+\makeatletter
+\setbeamertemplate{proof begin}{%
+  \setbeamercolor{block title}{bg=SproutProofTitleBg}% proof color
+  \begin{block}{Proof}
+    \normalfont%
+}
+\setbeamertemplate{proof end}{%
+    \end{block}
+}
+\makeatother
+
+\newtheorem*{observation}{Observation}

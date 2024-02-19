@@ -1,0 +1,7 @@
+*
+!*.png
+!*.cpp
+!*.tex
+!.gitignore
+!*.sty
+!slides.pdf
